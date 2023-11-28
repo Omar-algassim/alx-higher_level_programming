@@ -10,10 +10,10 @@ int check_cycle(listint_t *list)
 {
 	listint_t *ptr;
 	listint_t *current;
-	
+
 	if(list == NULL || list->next == NULL)
 	{
-		return(0);
+		return (0);
 	}
 		ptr = list;
 		current = list->next;
@@ -22,7 +22,9 @@ int check_cycle(listint_t *list)
 	{
 		if(ptr == current)
 			return (1);
-	       current = current->next;	
+
+		ptr = ptr->next;
+		current = current->next->next;	
 	}
 return (0);
 }
