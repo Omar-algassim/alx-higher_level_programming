@@ -10,10 +10,15 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *temp = *head;
 	listint_t *current = *head;
 
-	if(*head == NULL || !number)
+	if(!number)
 		return (NULL);
-
 	insert->n = number;
+	if(*head == NULL)
+	{
+		insert = *head;
+		insert->next = NULL;
+		return (insert);
+	}
 
 	while(current->next != NULL)
 	{
