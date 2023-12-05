@@ -10,7 +10,7 @@ int is_palindrome(listint_t **head)
 {
     listint_t *current = *head;
     int *test = NULL;
-    int backward = 0, forward = 0;
+    int backward = 0, forward = 0, i = 0;
 
    if (*head == NULL)
     {
@@ -26,35 +26,37 @@ int is_palindrome(listint_t **head)
 		return (0);
 	else
 	{
-		forward = backward / 2;
 		current = *head;
-		test = malloc(sizeof(int) * backward + 1);
+		test = malloc(sizeof(int) * backward);
 		while (current->next != NULL)
 		{
 			test[forward] = current->n;
-			printf("%d\n", test[forward]);
-			if (forward != 0)
+			if (forward >= 1)
 			{
-				if(test[--forward] == current->n)
+				
+				if(test[i] == current->n)
 				{
-					while (forward > 0)
+					printf("iam here\n");
+					while (i > 0)
 					{
-						if (test[forward] != current->n)
+						printf("comparing : %d and %d and the len is %d\n", test[i], current->n, i);
+						if (test[i] != current->n)
 						{
 							free(test);
 							return (0);
 						}
 					current = current->next;
-					forward--;
+					i--;
 					}
 					free(test);
 					return (1);
 				}
+				i++;
 			}
-			current = current->next;
 			forward++;
+			current = current->next;
 		}
 	}
     free(test);
-    return (1);
+    return (0);
 }
