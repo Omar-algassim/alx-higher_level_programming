@@ -9,8 +9,8 @@
 int is_palindrome(listint_t **head)
 {
     listint_t *current = *head;
-    int *test = malloc(sizeof(int) * 3);
-    int backward = 0;
+    int *test = NULL;
+    int backward = 0, forward = 0;
 
    if (*head == NULL)
     {
@@ -18,13 +18,43 @@ int is_palindrome(listint_t **head)
     }
     while (current->next != NULL)
     {
-		test = realloc(test, sizeof(int) * backward + 1);
-		test[backward] = current->n;
-		printf("%d\n", test[backward]);
-		current = current->next;
 		backward++;
-		
+		current = current->next;
     }
+	backward++;
+	if (backward % 2 != 0)
+		return (0);
+	else
+	{
+		forward = backward / 2;
+		current = *head;
+		test = malloc(sizeof(int) * backward + 1);
+		while (current->next != NULL)
+		{
+			test[forward] = current->n;
+			printf("%d\n", test[forward]);
+			if (forward != 0)
+			{
+				if(test[--forward] == current->n)
+				{
+					while (forward > 0)
+					{
+						if (test[forward] != current->n)
+						{
+							free(test);
+							return (0);
+						}
+					current = current->next;
+					forward--;
+					}
+					free(test);
+					return (1);
+				}
+			}
+			current = current->next;
+			forward++;
+		}
+	}
     free(test);
     return (1);
 }
