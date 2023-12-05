@@ -10,51 +10,38 @@ int is_palindrome(listint_t **head)
 {
     listint_t *current = *head;
     int *test = NULL;
-    int backward = 0, forward = 0, i = 0;
+    int backward = 0, forward = 0;//, i = 0;
 
    if (*head == NULL)
     {
         return (1);
     }
-    while (current->next != NULL)
+    while (current != NULL)
     {
 		backward++;
 		current = current->next;
     }
-	backward++;
-	if (backward % 2 != 0)
-		return (0);
-	else
-	{
-		current = *head;
-		test = malloc(sizeof(int) * backward);
-		while (current->next != NULL)
+	current = *head;
+	test = malloc(sizeof(int) * backward);
+
+		while (current != NULL)
 		{
 			test[forward] = current->n;
-			if (forward >= 1)
-			{
-				
-				if(test[i] == current->n)
-				{
-					while (i >= 0)
-					{
-						if (test[i] != current->n)
-						{
-							free(test);
-							return (0);
-						}
-					current = current->next;
-					i--;
-					}
-					free(test);
-					return (1);
-				}
-				i++;
-			}
 			forward++;
 			current = current->next;
 		}
-	}
+		current = *head;
+		forward = 0;
+		while (forward < backward - 1)
+		{
+			if (test[forward] != test[backward - 1])
+			{
+				free(test);
+				return (0);
+			}
+			backward--;
+			forward++;
+		}
     free(test);
-    return (0);
+    return (1);
 }
