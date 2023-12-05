@@ -37,7 +37,7 @@ int is_palindrome(listint_t **head)
 				if(test[i] == current->n)
 				{
 					printf("iam here\n");
-					while (i > 0)
+					while (i >= 0)
 					{
 						printf("comparing : %d and %d and the len is %d\n", test[i], current->n, i);
 						if (test[i] != current->n)
