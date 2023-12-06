@@ -5,9 +5,10 @@ def roman_to_int(roman_string):
     length = len(roman_string)
     count = 0
     for i in range(length):
-        if sample[roman_string[i]] > sample[roman_string[i + 1]] and i + 1 < length:
-            count += (sample[roman_string[i]] - sample[roman_string[i + 1]])
-            i + 1
-            print(i)
-    count += sample[roman_string[i]]
+        if i + 1 < length - 1:
+            if sample[roman_string[i]] < sample[roman_string[i + 1]]:
+                count += (sample[roman_string[i]] - sample[roman_string[i + 1]])
+                i + 1
+                print(i)
+        count += sample[roman_string[i]]
     return count
