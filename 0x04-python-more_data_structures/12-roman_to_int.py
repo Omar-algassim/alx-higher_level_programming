@@ -7,16 +7,17 @@ def roman_to_int(roman_string):
     length = len(roman_string)
     i = 0
     count = 0
+    add = 0
     while i < length:
         if length == 1:
             count = sample[roman_string[i]]
             break
         if i + 1 <= length - 1:
             if sample[roman_string[i]] < sample[roman_string[i + 1]]:
-                count = (sample[roman_string[i + 1]] - sample[roman_string[i]])
+                add = (sample[roman_string[i + 1]] - sample[roman_string[i]])
                 i += 1
             else:
-                count = sample[roman_string[i]]
-        count += count
+                add = sample[roman_string[i]]
+        count += add
         i += 1
     return count
