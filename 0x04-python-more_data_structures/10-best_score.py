@@ -9,7 +9,7 @@ def best_score(a_dictionary):
                     comp = a_dictionary[i]
                     string = i
             else:
-                return None                
+                return None
         return string
     else:
         return None
