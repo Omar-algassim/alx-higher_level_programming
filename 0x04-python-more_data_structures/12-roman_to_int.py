@@ -11,13 +11,15 @@ def roman_to_int(roman_string):
     while i < length:
         if length == 1:
             count = sample[roman_string[i]]
-            break
-        if i + 1 <= length - 1:
+            return count
+        elif i + 1 <= length - 1:
             if sample[roman_string[i]] < sample[roman_string[i + 1]]:
                 add = (sample[roman_string[i + 1]] - sample[roman_string[i]])
                 i += 1
             else:
                 add = sample[roman_string[i]]
+        else:
+            add = sample[roman_string[i]]
         count += add
         i += 1
     return count
