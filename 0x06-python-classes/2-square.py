@@ -10,7 +10,7 @@ class Square:
     def __init__(self, size=0):
 
         """Defin the metod of square and most be integer"""
-        
+
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
