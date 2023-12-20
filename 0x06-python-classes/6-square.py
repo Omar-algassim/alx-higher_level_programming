@@ -39,6 +39,7 @@ class Square:
     @position.setter
     def position(self, value):
         if (position[0] < 0 or
+                len(value) != 2 or
                 position[1] < 0 or
                 not isinstance(position[0], int) or
                 not isinstance(position[1], int)):
