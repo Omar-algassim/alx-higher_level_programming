@@ -5,11 +5,14 @@
 class Square:
     """Represent a square."""
 
-    pass
 
     def __init__(self, size=0, position=(0, 0)):
 
-        """Defin the metod of square and most be integer"""
+        """Initialize a new square.
+
+        Args:
+            size (int): The size of the new square.
+            position (int, int): The position of the new square."""
 
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -53,6 +56,10 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
+
+        """print the square as a (#)"""
+
+
         if self.__size == 0:
             print("")
         else:
