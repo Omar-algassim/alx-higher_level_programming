@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+"""define rectangle"""
+
+
 class Rectangle:
 
-    ''' the rectangle '''
+    """ the rectangle """
 
     pass
 
