@@ -38,12 +38,16 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        ret = 0.5 * self.width * self.height
+
+        """ retutrn area of tri angle """
+        ret = self.__width * self.__height
         return ret
 
     def perimeter(self):
-        if self.width == 0 or self.height == 0:
+
+        """ returtn the perimeter of triangle """
+        if self.__width == 0 or self.__height == 0:
             ret = 0
         else:
-            ret = 2 * (self.width + self.height)
+            ret =  (self.__width * 2) + (self.__height * 2)
         return ret
