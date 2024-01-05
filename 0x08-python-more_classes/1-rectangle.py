@@ -6,13 +6,12 @@ class Rectangle:
 
     """ the rectangle """
 
-
     def __init__(self, width=0, height=0):
-    
+
         """ width and height """
         self.width = width
         self.height = height
-    
+
     @property
     def width(self):
         return self.__width
