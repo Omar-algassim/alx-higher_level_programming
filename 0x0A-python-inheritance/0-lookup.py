@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""define attribute function """
+"""Define attribute function """
 
 
-    def lookup(obj):
-        """ return the methode of object"""
+def lookup(obj):
+    """ Return the methode of object"""
 
-        return (dir(obj))
-
+    return (dir(obj))
