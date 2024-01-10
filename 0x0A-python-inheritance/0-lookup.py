@@ -2,7 +2,6 @@
 """define attribute function """
 
 
-
     def lookup(obj):
         """ return the methode of object"""
 
