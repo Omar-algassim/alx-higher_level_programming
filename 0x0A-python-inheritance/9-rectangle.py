@@ -12,7 +12,7 @@ class Rectangle(BaseGeometry):
         self.__height = height
         super().integer_validator("width", width)
         self.__width = width
-        
+
     def area(self):
         """return the area of Rectangle"""
         return self.__height * self.__width
@@ -22,5 +22,3 @@ class Rectangle(BaseGeometry):
         string = "[" + str(self.__class__.__name__) + "] "
         string += str(self.__width) + "/" + str(self.__height)
         return string
-
-
