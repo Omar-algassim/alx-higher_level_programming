@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" define subclass saure from rectangle"""
 Rectangle = __import__('9-rectangle').Rectangle
 
 
