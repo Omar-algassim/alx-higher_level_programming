@@ -3,15 +3,11 @@
 
 
 def add_integer(a, b=98):
-    """add tow integer number a and b 
+    """add tow integer number a and b
 
     Args:
         a (int): the first number
         b (int): the second number. Defaults to 98.
-
-    Raises:
-        TypeError: 
-      
 
     Returns:
         int : the result of add
