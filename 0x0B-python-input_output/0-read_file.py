@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""define the read file"""
+
 
 def read_file(filename=""):
     """read file and print in stdout
