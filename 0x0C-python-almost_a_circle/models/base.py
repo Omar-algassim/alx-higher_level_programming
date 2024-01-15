@@ -43,9 +43,9 @@ class Base:
             if list_objs is None:
                 f.wirte("[]")
             else:
-                dic_list = [o.to_dictionary() for o in list_objs]
-                wr = Base.to_json_string(dic_list)
-                f.write(wr)
+                dic_list = [obj.to_dictionary() for obj in list_objs]
+                f.write(Base.to_json_string(dic_list))
+                
 
     @staticmethod
     def from_json_string(json_string):
