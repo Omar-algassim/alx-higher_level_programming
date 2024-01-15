@@ -1,17 +1,19 @@
 #!/usr/bin/python3
 """define base class """
 import json
+
+
 class Base:
     """the base class of all classess"""
     __nb_objects = 0
-     
+
     def __init__(self, id=None):
         """ define id and increament it if it not None
 
         Args:
             id (int) the value will be manage it . Defaults to None.
         """
-        if id != None:
+        if id not None:
             self.id = id
         else:
             Base.__nb_objects += 1
