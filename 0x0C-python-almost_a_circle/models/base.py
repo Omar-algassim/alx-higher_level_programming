@@ -38,11 +38,10 @@ class Base:
         Args:
             list_objs (list): objects of inherits classes
         """
-        dic_list = []
         filename = "{}.json".format(str(cls.__name__))
         with open(filename, "w", encoding="utf-8") as f:
             if list_objs is None:
-                f.wirte(dic_list)
+                f.wirte("[]")
             else:
                 dic_list = [o.to_dictionary() for o in list_objs]
                 wr = Base.to_json_string(dic_list)
