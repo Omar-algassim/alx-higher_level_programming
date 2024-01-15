@@ -44,8 +44,7 @@ class Base:
             if list_objs is None:
                 f.wirte(dic_list)
             else:
-                for obj in list_objs:
-                    dic_list.append(obj.to_dictionary())
+                dic_list = [o.to_dictionary() for o in list_objs]
                 wr = Base.to_json_string(dic_list)
                 f.write(wr)
 
