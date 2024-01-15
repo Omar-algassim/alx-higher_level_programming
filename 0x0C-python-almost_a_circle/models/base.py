@@ -42,7 +42,7 @@ class Base:
         filename = "{}.json".format(str(cls.__name__))
         with open(filename, "w", encoding="utf-8") as f:
             if list_objs is None:
-                f.wirte("[]")
+                f.wirte(dic_list)
             else:
                 for obj in list_objs:
                     dic_list.append(obj.to_dictionary())
