@@ -71,8 +71,10 @@ class Base:
     
     @classmethod
     def load_from_file(cls):
-        with open("{}.json".format(cls.__name__), "r", encoding="utf-8") as f:
-            dic = Base.from_json_string(f.read)
-            ret = Base.creat(dic)
-            return ret
-            
+        try:
+            with open("{}.json".format(cls.__name__), "r", encoding="utf-8") as f:
+                file_ = f.read()
+                dic = Base.from_json_string(file_)
+                return [cls.create(**i) for i in dic]
+        except FileNotFoundError:
+            return []
