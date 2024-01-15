@@ -23,10 +23,20 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """the getter of width"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """the setter of width
+
+        Args:
+            value (int): thee new value of width
+
+        Raises:
+            TypeError: if the value is not integer
+            ValueError: if the value is less than 0
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -35,10 +45,20 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """the getter of height"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """the setter of height
+
+        Args:
+            value (int): the new value of height
+
+        Raises:
+            TypeError: if the value is not integer
+            ValueError: if the value is less than 0
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -47,10 +67,20 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """the getter of x"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """the setter of x
+
+        Args:
+            value (int): the new value of x
+
+        Raises:
+            TypeError: if the value is not integer
+            ValueError: if the value less than 0
+        """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -59,10 +89,20 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """the getter of y"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """setter of y
+
+        Args:
+            value (int): the new value of y
+
+        Raises:
+            TypeError: if valueis not integer
+            ValueError: if the value less than 0
+        """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -74,6 +114,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
+        """display the rectangle as "#" """
         for y in range(self.__y):
             print()
         for i in range(self.__height):
@@ -84,12 +125,18 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """replace the print with specific format
+
+        Returns:
+            str: the print format
+        """
         ret = "[{}] ({}) ".format(str(self.__class__.__name__), self.id)
         ret += "{}/{}".format(self.__x, self.__y,)
         ret += " - {}/{}".format(self.__width, self.__height)
         return ret
 
     def update(self, *args, **kwargs):
+        """to update all instaces"""
         if args:
             argu = []
             for arg in args:

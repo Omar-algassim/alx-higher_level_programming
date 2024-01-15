@@ -13,21 +13,21 @@ class Base:
         Args:
             id (int) the value will be manage it . Defaults to None.
         """
-        if id not None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
-        """ that returns the JSON string representation of 
+        """ that returns the JSON string representation of
         list_dictionaries
 
         Args:
             list_dictionaries (dict): dictionary of values
         """
-        if list_dictionaries == None:
+        if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -40,7 +40,8 @@ class Base:
         """
         ret = []
         if list_objs is not None:
-            with open("{}.json".format(str(cls.__name__)), "w", encoding="utf-8") as f:
+            filename = "{}.json".format(str(cls.__name__))
+            with open(filename, "w", encoding="utf-8") as f:
                 if list_objs is None:
                     f.wirte("[]")
                 else:
@@ -50,7 +51,8 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """re that returns the list of the JSON string representation json_string:
+        """re that returns the list of the
+        JSON string representation json_string:
 
         Args:
             json_string (str): is a string representing a list of dictionaries
@@ -65,16 +67,22 @@ class Base:
         """create instance and return with
 
         Returns:
-            instance: new istance with new argument 
+            instance: new istance with new argument
         """
         inst = cls(0, 0)
         inst.update(**dictionary)
         return inst
-    
+
     @classmethod
     def load_from_file(cls):
+        """load string from json file
+
+        Returns:
+            list: a list of instance
+        """
         try:
-            with open("{}.json".format(cls.__name__), "r", encoding="utf-8") as f:
+            filename = "{}.json".format(cls.__name__)
+            with open(filename, "r", encoding="utf-8") as f:
                 file_ = f.read()
                 dic = Base.from_json_string(file_)
                 return [cls.create(**i) for i in dic]

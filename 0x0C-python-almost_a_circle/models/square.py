@@ -9,26 +9,42 @@ class Square(Rectangle):
         """ squre argument and id """
         super().__init__(size, size, x, y, id)
         self.__size = size
-        
+
     @property
     def size(self):
+        """the getter of size
+
+        Returns:
+            int: the size of square height or width
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """the setter of size
+
+        Returns:
+            int: the size of square height or width
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__width = value
         self.__height = value
-        
+
     def __str__(self):
+        """return the string of instaces
+
+        Returns:
+            str: the instances
+        """
         ret = "[{}] ({}) ".format(str(self.__class__.__name__), self.id)
         ret += "{}/{} - {}".format(self.x, self.y, self.__size)
         return ret
-    
+
     def update(self, *args, **kwargs):
+        """update the instance of attribute"""
         if args:
             argu = []
             for arg in args:
@@ -51,6 +67,11 @@ class Square(Rectangle):
                     self.x = value
                 if key == "y":
                     self.y = value
-    
+
     def to_dictionary(self):
+        """transfer the instance to dictionary
+
+        Returns:
+            dict: the instance of attribute
+        """
         return {'id': self.id, 'x': self.x, 'size': self.__size, 'y': self.y}
