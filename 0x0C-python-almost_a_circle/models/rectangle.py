@@ -23,45 +23,27 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """the getter of width"""
+        """the setter/getter of width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """the setter of width
-
-        Args:
-            value (int): thee new value of width
-
-        Raises:
-            TypeError: if the value is not integer
-            ValueError: if the value is less than 0
-        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
 
     @property
     def height(self):
-        """the getter of height"""
+        """the getter/setter of height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """the setter of height
-
-        Args:
-            value (int): the new value of height
-
-        Raises:
-            TypeError: if the value is not integer
-            ValueError: if the value is less than 0
-        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
@@ -72,40 +54,22 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """the setter of x
-
-        Args:
-            value (int): the new value of x
-
-        Raises:
-            TypeError: if the value is not integer
-            ValueError: if the value less than 0
-        """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
     def y(self):
-        """the getter of y"""
+        """the getter/setter of y"""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """setter of y
-
-        Args:
-            value (int): the new value of y
-
-        Raises:
-            TypeError: if valueis not integer
-            ValueError: if the value less than 0
-        """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
