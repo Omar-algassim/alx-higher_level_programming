@@ -44,8 +44,8 @@ class Base:
                 f.wirte("[]")
             else:
                 dic_list = [obj.to_dictionary() for obj in list_objs]
-                f.write(Base.to_json_string(dic_list))
-                
+                wr = Base.to_json_string(dic_list)
+                f.write(wr)
 
     @staticmethod
     def from_json_string(json_string):
