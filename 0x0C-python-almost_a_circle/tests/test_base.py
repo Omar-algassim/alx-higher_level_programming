@@ -32,5 +32,12 @@ class testBase(unittest.TestCase):
         Base.save_to_file([r1, r2])
         with open("Rectangle.json", 'r', encoding='utf-8') as f:
             self.assertIsInstance(f.read(), str)
+    
+    def test_from_json_string(self):
+        """test from_json_string method"""
+        json_str = '[{"x": 2, "y":3}, {"o": 5, "p": 9}]'
+        py_list = json.loads(json_str)
+        self.assertIsInstance(py_list, list)
+        
         
             
