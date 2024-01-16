@@ -38,7 +38,7 @@ class Square(Rectangle):
             if len(argu) > 0:
                 self.id = argu[0]
             if len(argu) > 1:
-                self.__size = argu[1]
+                self.size = argu[1]
             if len(argu) > 2:
                 self.x = argu[2]
             if len(argu) > 3:
@@ -48,7 +48,7 @@ class Square(Rectangle):
                 if key == "id":
                     self.id = value
                 if key == "size":
-                    self.__size = value
+                    self.size = value
                 if key == "x":
                     self.x = value
                 if key == "y":
