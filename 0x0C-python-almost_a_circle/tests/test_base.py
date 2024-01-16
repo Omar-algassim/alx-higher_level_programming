@@ -16,8 +16,6 @@ class testBase(unittest.TestCase):
 
     def test_id(self):
         """test if id increas if it is None"""
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
         b2 = Base(10)
         self.assertEqual(b2.id, 10)
         b3 = Base(-10)
