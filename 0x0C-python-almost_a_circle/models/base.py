@@ -41,7 +41,7 @@ class Base:
         filename = "{}.json".format(str(cls.__name__))
         with open(filename, "w", encoding="utf-8") as f:
             if list_objs is None:
-                f.wirte("[]")
+                f.write("[]")
             else:
                 dic_list = [obj.to_dictionary() for obj in list_objs]
                 wr = Base.to_json_string(dic_list)
