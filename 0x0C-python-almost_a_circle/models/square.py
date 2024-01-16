@@ -26,7 +26,7 @@ class Square(Rectangle):
             str: the instances
         """
         ret = "[{}] ({}) ".format(str(self.__class__.__name__), self.id)
-        ret += "{}/{} - {}".format(self.x, self.y, self.__size)
+        ret += "{}/{} - {}".format(self.x, self.y, self.size)
         return ret
 
     def update(self, *args, **kwargs):
@@ -60,4 +60,4 @@ class Square(Rectangle):
         Returns:
             dict: the instance of attribute
         """
-        return {'id': self.id, 'x': self.x, 'size': self.__size, 'y': self.y}
+        return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
