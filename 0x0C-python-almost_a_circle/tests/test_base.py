@@ -52,3 +52,10 @@ class testBase(unittest.TestCase):
         py_list = Base.from_json_string(json_str)
         self.assertEqual(py_list, [])
     
+    def test_create(self):
+        """test the creat method"""
+        r1 = Rectangle(3, 5, 1, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+    

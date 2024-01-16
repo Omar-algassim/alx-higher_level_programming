@@ -67,7 +67,7 @@ class Base:
         Returns:
             instance: new istance with new argument
         """
-        inst = cls(0, 0)
+        inst = cls(1, 1)
         inst.update(**dictionary)
         return inst
 
