@@ -67,7 +67,10 @@ class Base:
         Returns:
             instance: new istance with new argument
         """
-        inst = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            inst = cls(1, 1)
+        else:
+            inst = cls(1)
         inst.update(**dictionary)
         return inst
 
