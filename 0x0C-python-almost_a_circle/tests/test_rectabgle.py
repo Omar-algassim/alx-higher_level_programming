@@ -19,8 +19,32 @@ class testRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 2)
         r1.y = 3
         self.assertEqual(r1.y, 3)
+        with self.assertRaises(ValueError):
+            r1.width = 0
+        with self.assertRaises(ValueError):
+            r1.height = 0
+        with self.assertRaises(ValueError):
+            r1.x = -1
+        with self.assertRaises(ValueError):
+            r1.y = -1
+        with self.assertRaises(TypeError):
+            r1.width = "0"
+        with self.assertRaises(TypeError):
+            r1.height = "0"        
+        with self.assertRaises(TypeError):
+            r1.x = "0"
+        with self.assertRaises(TypeError):
+            r1.y = "0"
         
     def test_rectangle_is_base(self):
         """is it base"""
         self.assertIsInstance(Rectangle(10, 2), Base)
     
+    def test_area(self):
+        """test the area method"""
+        a1 = Rectangle(5, 3)
+        self.assertEqual(a1.area(), 15)
+        
+    def test_dispplay(self):
+        """test display method"""
+        d1 = Rectangle(1, 2, 1, 1)

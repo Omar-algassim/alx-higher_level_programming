@@ -13,9 +13,11 @@ class testBase(unittest.TestCase):
         """test if is class or not"""
         obj = Base()
         self.assertIsInstance(obj, Base)
-
+    
     def test_id(self):
         """test if id increas if it is None"""
+        b1 = Base()
+        self.assertEqual(b1.id, 3)
         b2 = Base(10)
         self.assertEqual(b2.id, 10)
         b3 = Base(-10)
@@ -24,7 +26,7 @@ class testBase(unittest.TestCase):
         self.assertEqual(b4.id, 0)
         b5 = Base(10)
         self.assertIsInstance(b5.id, int)
-    
+
     def test_to_json_string(self):
         """test for json string method"""
         dic = {'x': 1, 'y': 2}
@@ -56,4 +58,3 @@ class testBase(unittest.TestCase):
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertNotEqual(r1, r2)
-    
