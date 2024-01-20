@@ -129,11 +129,11 @@ class testSquare(unittest.TestCase):
         self.assertEqual(capture1.getvalue(), expected_output)
         p2 = Square(5, 5, 1)
         capture1 = testSquare.capture_stdout(p2, "print")
-        expected_output = ("[Square] (23) 5/1 - 5\n")
+        expected_output = ("[Square] (24) 5/1 - 5\n")
         self.assertEqual(capture1.getvalue(), expected_output)
         p3 = Square(1, 1)
         capture1 = testSquare.capture_stdout(p3, "print")
-        expected_output = ("[Square] (24) 1/0 - 1\n")
+        expected_output = ("[Square] (25) 1/0 - 1\n")
         self.assertEqual(capture1.getvalue(), expected_output)
 
     def test_update(self):
@@ -147,11 +147,38 @@ class testSquare(unittest.TestCase):
         self.assertEqual(r1.x, r2.x)
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(r1.y, r2.y)
+    
+    def test_update_key(self):
+        """test update with key"""
+        r1 = Square(10, 10, 10, 10)
+        r2 = Square(1, 3, 1, 89) 
+        r1.update(size=1)
+        self.assertEqual(r1.size, r2.size)
+        r1.update(size=3, x=2)
+        r2.update(size=3)
+        self.assertEqual(r1.size, r2.size)
+        r1.update(y=1, size=5, x=3, id=89)
+        r2.update(size=5)
+        self.assertEqual(r1.id, r2.id)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
+        self.assertEqual(r1.size, r2.size)
+        r2 = Square(3, 1, 3, 11)
+        r1.update(x=1, size=3, y=3)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
+        self.assertEqual(r1.size, r2.size)
+        r2 = Square(2, 8, 0, 11)
+        r1.update(x=8, size=2, y=0, id=11)
+        self.assertEqual(r1.id, r2.id)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
+        self.assertEqual(r1.size, r2.size)
 
     def test_dictionary(self):
         r1 = Square(10, 10, 10, 10)
         expected_output = {'y': 10, 'x': 10, 'id': 10, 'size': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)
         r1 = Square(10)
-        expected_output = {'y': 0, 'x': 0, 'id': 22, 'size': 10}
+        expected_output = {'y': 0, 'x': 0, 'id': 23, 'size': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)

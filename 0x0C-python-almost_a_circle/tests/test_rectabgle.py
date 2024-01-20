@@ -151,8 +151,32 @@ class testRectangle(unittest.TestCase):
         self.assertEqual(r1.x, r2.x)
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(r1.y, r2.y)
+    
+    def test_update_key(self):
+        """test update with key"""
+        r1 = Rectangle(10, 10, 10, 10)
+        r2 = Rectangle(3, 1, 2, 1, 89) 
+        r1.update(height=1)
+        self.assertEqual(r1.height, r2.height)
+        r1.update(width=3, x=2)
+        self.assertEqual(r1.width, r2.width)
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(r1.height, r2.height)
+        r2 = Rectangle(4, 2, 1, 3, 11)
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
+        self.assertEqual(r1.height, r2.height)
+        self.assertEqual(r1.width, r2.width)
+        r1.update(x=1, height=2, y=3, width=4, id=11)
+        self.assertEqual(r1.id, r2.id)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
+        self.assertEqual(r1.height, r2.height)
+        self.assertEqual(r1.width, r2.width)
 
     def test_dictionary(self):
+        """test dictaionary"""
         r1 = Rectangle(10, 10, 10, 10, 10)
         expected_output = {'y': 10, 'x': 10, 'id': 10, 'width': 10, 'height': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)
