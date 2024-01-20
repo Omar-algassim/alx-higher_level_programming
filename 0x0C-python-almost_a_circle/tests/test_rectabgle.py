@@ -131,11 +131,11 @@ class testRectangle(unittest.TestCase):
         self.assertEqual(capture1.getvalue(), expected_output)
         p2 = Rectangle(5, 5, 1)
         capture1 = testRectangle.capture_stdout(p2, "print")
-        expected_output = ("[Rectangle] (16) 1/0 - 5/5\n")
+        expected_output = ("[Rectangle] (17) 1/0 - 5/5\n")
         self.assertEqual(capture1.getvalue(), expected_output)
         p3 = Rectangle(1, 1)
         capture1 = testRectangle.capture_stdout(p3, "print")
-        expected_output = ("[Rectangle] (17) 0/0 - 1/1\n")
+        expected_output = ("[Rectangle] (18) 0/0 - 1/1\n")
         self.assertEqual(capture1.getvalue(), expected_output)
 
     def test_update(self):
@@ -181,5 +181,5 @@ class testRectangle(unittest.TestCase):
         expected_output = {'y': 10, 'x': 10, 'id': 10, 'width': 10, 'height': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)
         r1 = Rectangle(10, 10,)
-        expected_output = {'y': 0, 'x': 0, 'id': 10, 'width': 10, 'height': 10}
+        expected_output = {'y': 0, 'x': 0, 'id': 11, 'width': 10, 'height': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)

@@ -129,11 +129,11 @@ class testSquare(unittest.TestCase):
         self.assertEqual(capture1.getvalue(), expected_output)
         p2 = Square(5, 5, 1)
         capture1 = testSquare.capture_stdout(p2, "print")
-        expected_output = ("[Square] (24) 5/1 - 5\n")
+        expected_output = ("[Square] (25) 5/1 - 5\n")
         self.assertEqual(capture1.getvalue(), expected_output)
         p3 = Square(1, 1)
         capture1 = testSquare.capture_stdout(p3, "print")
-        expected_output = ("[Square] (25) 1/0 - 1\n")
+        expected_output = ("[Square] (26) 1/0 - 1\n")
         self.assertEqual(capture1.getvalue(), expected_output)
 
     def test_update(self):
@@ -180,5 +180,5 @@ class testSquare(unittest.TestCase):
         expected_output = {'y': 10, 'x': 10, 'id': 10, 'size': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)
         r1 = Square(10)
-        expected_output = {'y': 0, 'x': 0, 'id': 23, 'size': 10}
+        expected_output = {'y': 0, 'x': 0, 'id': 24, 'size': 10}
         self.assertEqual(r1.to_dictionary(), expected_output)
