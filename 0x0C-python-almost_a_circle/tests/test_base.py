@@ -14,6 +14,11 @@ class testBase(unittest.TestCase):
         obj = Base()
         self.assertIsInstance(obj, Base)
     
+    def test_nb_instances_private(self):
+        """test is nb instance is privite"""
+        with self.assertRaises(AttributeError):
+            print(Base(12).__nb_instances)
+    
     def test_id(self):
         """test if id increas if it is None"""
         b1 = Base()
@@ -26,6 +31,8 @@ class testBase(unittest.TestCase):
         self.assertEqual(b4.id, 0)
         b5 = Base(10)
         self.assertIsInstance(b5.id, int)
+        b6 = Base("str")
+        self.assertEqual(b6.id, "str")
 
     def test_to_json_string(self):
         """test for json string method"""
@@ -54,8 +61,15 @@ class testBase(unittest.TestCase):
     
     def test_create(self):
         """test the creat method"""
-        r1 = Rectangle(3, 5, 1, 1)
+        r1 = Rectangle(3, 5, 1, 2, 7)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
-        self.assertNotEqual(r1, r2)
-
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r1))
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
