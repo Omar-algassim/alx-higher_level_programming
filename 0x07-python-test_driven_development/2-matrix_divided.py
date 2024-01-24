@@ -39,7 +39,7 @@ def matrix_divided(matrix, div):
         for i in row:
             if not (isinstance(i, int)) and not (isinstance(i, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of"
-                            " integers/floats")
+                                " integers/floats")
             r = round(i / div, 2)
             re.append(r)
         ret.append(re)
