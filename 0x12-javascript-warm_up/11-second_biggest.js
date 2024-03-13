@@ -6,7 +6,7 @@ if (array[2] === undefined || array.length < 4) {
   let max = array[2];
   let secondMax = array[3];
   for (let index = 2; index < array.length; index++) {
-    if (max < array[index]) {
+    if (max < parseInt(array[index])) {
       secondMax = max;
       max = array[index];
     } else if (secondMax < array[index] && max > array[index]) {
