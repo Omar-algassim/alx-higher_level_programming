@@ -12,8 +12,12 @@ if __name__ == "__main__":
                 cities JOIN states ON states.id=cities.state_id WHERE \
                     states.name = '{}'".format(name))
     state = cur.fetchall()
+    count = 0
     for i in state:
-        print(i)
-
+        count += 1
+        print(i[0], end="")
+        if count < len(state):
+            print(", ", end="")
+    print("")
     cur.close()
     db.close()
