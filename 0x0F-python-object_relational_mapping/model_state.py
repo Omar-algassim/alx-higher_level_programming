@@ -3,7 +3,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy import Integer, String, Column
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.ext.declarative import declarative_base
 import sys
 
 user = sys.argv[1]
