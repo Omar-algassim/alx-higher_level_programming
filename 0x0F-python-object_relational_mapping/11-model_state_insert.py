@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""create new column in table with name 'Louisiana' """
+"""create new column in table with name 'Louisiana' and print the id"""
 
 
 from sqlalchemy import create_engine
