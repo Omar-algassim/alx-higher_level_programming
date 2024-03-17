@@ -18,7 +18,7 @@ if __name__ == "__main__":
     new = State(name='Louisiana')
     session.add(new)
     session.commit()
-    
+
     data = session.query(State).filter(State.name == 'Louisiana').all()
     for row in data:
         print(row.id)
