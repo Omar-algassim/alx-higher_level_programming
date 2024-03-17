@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-    """print the first row in the table
-    """
+"""print the first row in the table"""
+
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
