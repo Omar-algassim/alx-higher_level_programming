@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""print the row contain 'A' in the table"""
+"""print all name id for specific name in the table"""
 
 
 from sqlalchemy import create_engine
