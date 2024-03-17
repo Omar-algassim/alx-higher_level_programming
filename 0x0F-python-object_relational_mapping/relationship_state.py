@@ -4,11 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy import Integer, String, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from model_city import City
+from relationship_city import City, Base
 import sys
-
-Base = declarative_base()
-
 
 class State(Base):
     """state class

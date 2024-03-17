@@ -5,8 +5,8 @@ from the database hbtn_0e_100_usa"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 import sys
 
 if __name__ == "__main__":
@@ -19,11 +19,10 @@ if __name__ == "__main__":
     session = Session()
 
     new_state = State(name='California')
+    new_city = City(name='San Francisco')
+    new_state.cities.append(new_city)
+    
+    # data = session.query(State).filter(State.name == 'California').all()
     session.add(new_state)
-    
-    data = session.query(State).filter(State.name == 'California').all()
-    
-    new_city = City(name='San Francisco', state_id=data[0].id)
-    
     session.add(new_city)
     session.commit()
