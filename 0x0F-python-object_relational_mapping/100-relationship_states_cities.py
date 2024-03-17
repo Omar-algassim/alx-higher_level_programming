@@ -19,11 +19,11 @@ if __name__ == "__main__":
     session = Session()
 
     new_state = State(name='California')
+    session.add(new_state)
     
     data = session.query(State).filter(State.name == 'California').all()
     
-    new_city = City(name='California', state_id=data[0].id)
-    new_state.cities.append(new_city)
-    session.add(new_state)
+    new_city = City(name='San Francisco', state_id=data[0].id)
+    
     session.add(new_city)
     session.commit()
