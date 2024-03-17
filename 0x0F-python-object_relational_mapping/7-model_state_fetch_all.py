@@ -4,12 +4,14 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                       .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+if __name__ == "__main__":
 
-Session = sessionmaker(bind=engine)
-session = Session()
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                        .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
-data = session.query(State).all()
-for obj in data:
-    print("{}: {}".format(obj.id, obj.name))
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    data = session.query(State).all()
+    for obj in data:
+        print("{}: {}".format(obj.id, obj.name))
