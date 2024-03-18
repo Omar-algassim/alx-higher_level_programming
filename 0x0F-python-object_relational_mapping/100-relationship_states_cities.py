@@ -14,6 +14,7 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
+
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
@@ -22,6 +23,5 @@ if __name__ == "__main__":
     new_state = State(name='California')
     new_city = City(name='San Francisco', state=new_state)
 
-    session.add(new_state)
     session.add(new_city)
     session.commit()
