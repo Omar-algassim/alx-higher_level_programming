@@ -9,6 +9,7 @@ import sys
 
 Base = declarative_base()
 
+
 class City(Base):
     """state class
     """

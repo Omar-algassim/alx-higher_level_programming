@@ -6,6 +6,7 @@ from sqlalchemy.orm import relationship
 from relationship_city import City, Base
 import sys
 
+
 class State(Base):
     """state class
     """
