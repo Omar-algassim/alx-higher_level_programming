@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""define method find the maximum of integer"""
 
 def find_peak(list_of_integers):
     """find the peak of the list"""
