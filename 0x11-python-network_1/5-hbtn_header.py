@@ -5,7 +5,7 @@
 import requests
 import sys
 
-url = sys.argv[1]
 if "__main__" == __name__:
+    url = sys.argv[1]
     web = requests.get(url)
     print(web.headers.get('X-Request-Id'))
