@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" retrive the info of request"""
+"""retrive the id of the request"""
+
 
 
 import requests
 import sys
-
 
 url = sys.argv[1]
 if "__main__" == __name__:
